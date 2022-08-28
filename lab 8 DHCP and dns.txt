@@ -1,0 +1,407 @@
+ 
+
+
+DHCP:::
+
+ROUTER 16
+
+en
+conf t
+ip dhcp pool project
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+dns-server 193.168.10.2
+ex
+
+
+
+ROUTER 10
+
+
+en
+conf t
+ip dhcp pool project
+network 197.168.6.0 255.255.255.0
+default-router 197.168.6.1
+dns-server 193.168.10.2
+ex
+
+
+ROUTER 11
+
+
+en
+conf t
+ip dhcp pool project
+network 198.168.5.0 255.255.255.0
+default-router 198.168.5.1
+dns-server 193.168.10.2
+ex
+
+
+ROUTER 12
+
+
+en
+conf t
+ip dhcp pool project
+network 199.168.4.0 255.255.255.0
+default-router 199.168.4.1
+dns-server 193.168.10.2
+ex
+
+ROUTER 13
+
+
+en
+conf t
+ip dhcp pool project
+network 195.168.3.0 255.255.255.0
+default-router 195.168.3.1
+dns-server 193.168.10.2
+ex
+
+
+ROUTER 14
+
+
+en
+conf t
+ip dhcp pool project
+network 154.128.0.0 255.255.0.0
+default-router 154.128.0.1
+dns-server 193.168.10.2
+ex
+
+
+ROUTER 15
+
+
+en
+conf t
+ip dhcp pool project
+network 153.129.0.0 255.255.0.0
+default-router 153.129.0.1
+dns-server 193.168.10.2
+ex
+
+
+ROUTER 1
+
+
+en
+conf t
+ip dhcp pool project
+network 152.130.0.0 255.255.0.0
+default-router 152.130.0.1
+dns-server 193.168.10.2
+ex
+
+
+ROUTER 4
+
+
+en
+conf t
+ip dhcp pool project
+network 200.168.7.0 255.255.255.0
+default-router 200.168.7.1
+dns-server 193.168.10.2
+ex
+
+
+ROUTER 5
+
+
+en
+conf t
+ip dhcp pool project
+network 201.168.8.0 255.255.255.0
+default-router 201.168.8.1
+dns-server 193.168.10.2
+ex
+
+
+ROUTER 6
+
+
+en
+conf t
+ip dhcp pool project
+network 202.168.9.0 255.255.255.0
+default-router 202.168.9.1
+dns-server 193.168.10.2
+ex
+
+ROUTER 7
+
+
+en
+conf t
+ip dhcp pool project
+network 203.168.10.0 255.255.255.0
+default-router 203.168.10.1
+dns-server 193.168.10.2
+ex
+
+
+ROUTER 8
+
+
+en
+conf t
+ip dhcp pool project
+network 204.168.11.0 255.255.255.0
+default-router 204.168.11.1
+dns-server 193.168.10.2
+ex
+
+
+ROUTER 9
+
+
+en
+conf t
+ip dhcp pool project
+network 205.168.12.0 255.255.255.0
+default-router 205.168.12.1
+dns-server 193.168.10.2
+ex
+
+
+
+EIGRP:::
+
+ROUTER 16
+
+en
+conf t
+router eigrp 10
+network 192.168.10.0 0.0.0.255
+network 193.168.30.0 0.0.0.3 
+ex
+
+ROUTER 10
+
+en
+conf t
+router eigrp 10
+network 197.168.6.0 0.0.0.255
+network 193.168.30.0 0.0.0.3 
+network 7.0.0.0 0.255.255.3 
+ex
+
+ROUTER 11
+
+en
+conf t
+router eigrp 10
+network 198.168.5.0 0.0.0.255
+network 22.0.0.0 0.255.255.3 
+network 7.0.0.0 0.255.255.3 
+ex
+
+
+ROUTER 12
+
+router eigrp 10
+network 199.168.4.0 0.0.0.255
+network 22.0.0.0 0.255.255.3 
+network 6.0.0.0 0.255.255.3 
+ex
+
+
+ROUTER 13
+
+en
+conf t
+router eigrp 10
+network 195.168.3.0 0.0.0.255
+network 40.0.0.0 0.255.255.3 
+network 6.0.0.0 0.255.255.3 
+ex
+
+
+ROUTER 14
+
+en
+conf t
+router eigrp 10
+network 154.128.0.0 0.0.255.255
+network 40.0.0.0 0.255.255.3 
+network 20.0.0.0 0.255.255.3 
+ex
+
+ROUTER 15
+
+en
+conf t
+router eigrp 10
+network 153.129.0.0 0.0.255.255
+network 10.0.0.0 0.255.255.3 
+network 20.0.0.0 0.255.255.3 
+ex
+
+
+ROUTER 14
+
+en
+conf t
+router eigrp 10
+network 152.130.0.0 0.0.255.255
+network 10.0.0.0 0.255.255.3 
+network 30.0.0.0 0.255.255.3 
+ex
+
+
+
+ROUTER 3
+
+en
+conf t
+router eigrp 10 
+network 25.0.0.0 0.255.255.3 
+network 30.0.0.0 0.255.255.3 
+ex
+
+
+ROUTER 0
+
+en
+conf t
+router eigrp 10 
+network 25.0.0.0 0.255.255.3 
+network 11.0.0.0 0.255.255.3 
+ex
+
+
+ROUTER 4
+
+en
+conf t
+router eigrp 10
+network 200.168.7.0 0.0.0.255
+network 11.0.0.0 0.255.255.3 
+network 12.0.0.0 0.255.255.3 
+ex
+
+
+
+ROUTER 5
+
+en
+conf t
+router eigrp 10
+network 201.168.8.0 0.0.0.255
+network 13.0.0.0 0.255.255.3 
+network 12.0.0.0 0.255.255.3 
+ex
+
+ROUTER 6
+
+en
+conf t
+router eigrp 10
+network 202.168.9.0 0.0.0.255
+network 13.0.0.0 0.255.255.3 
+network 14.0.0.0 0.255.255.3 
+ex
+
+
+ROUTER 7
+
+en
+conf t
+router eigrp 10
+network 203.168.10.0 0.0.0.255
+network 15.0.0.0 0.255.255.3 
+network 14.0.0.0 0.255.255.3 
+ex
+
+
+ROUTER 8
+
+en
+conf t
+router eigrp 10
+network 204.168.11.0 0.0.0.255
+network 15.0.0.0 0.255.255.3 
+network 16.0.0.0 0.255.255.3 
+ex
+
+ROUTER 9
+
+en
+conf t
+router eigrp 10
+network 205.168.12.0 0.0.0.255
+network 193.168.20.0 0.0.0.3 
+network 16.0.0.0 0.255.255.3 
+ex
+
+
+ROUTER 2
+
+en
+conf t
+router eigrp 10
+network 193.168.10.0 0.0.0.255
+network 193.168.20.0 0.0.0.3  
+ex
+
+
+
+VLAN FOR IT and HR:
+
+
+Left SIDE:
+
+vlan 20
+name HR
+ex
+vlan 10
+name IT
+ex
+int fa0/2
+switchport access vlan 20
+ex
+int fa0/3
+switchport access vlan 10
+ex 
+int fa0/4
+switchport mode trunk
+ex
+interface range fa0/1-4
+switchport mode access
+ex
+
+
+
+
+
+Right SIDE:
+
+vlan 20
+name HR
+ex
+vlan 10
+name IT
+ex
+int fa0/3
+switchport access vlan 20
+ex
+int fa0/2
+switchport access vlan 10
+ex 
+int fa0/4
+switchport mode trunk
+ex
+interface range fa0/1-4
+switchport mode access
+ex
+
+
+
+
+
+

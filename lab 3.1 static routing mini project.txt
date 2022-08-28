@@ -1,0 +1,120 @@
+ROUTER 0
+
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int fa0/0
+Router(config-if)#ip add 192.168.10.1 255.255.255.0
+Router(config-if)#no sh
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#ex
+Router(config)#int se2/0
+Router(config-if)#ip add 192.168.20.1 255.255.255.0
+Router(config-if)#clock rate 64000
+Router(config-if)#no sh
+
+%LINK-5-CHANGED: Interface Serial2/0, changed state to down
+Router(config-if)#ex
+ 
+
+ROUTER 1
+
+ 
+
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int se2/0
+Router(config-if)#ip add 192.168.20.2 255.255.255.0
+Router(config-if)#no sh
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial2/0, changed state to up
+
+Router(config-if)#ex
+Router(config)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial2/0, changed state to up
+
+Router(config)#int fa0/0
+Router(config-if)#ip add 191.168.0.1 255.255.0.0
+Router(config-if)#no sh
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#ex
+Router(config)#int se3/0 
+Router(config-if)#ip add 190.168.0.1 255.255.0.0
+Router(config-if)#clock rate 64000
+Router(config-if)#no sh
+
+%LINK-5-CHANGED: Interface Serial3/0, changed state to down
+Router(config-if)#ex
+Router(config)#
+
+
+router 2
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int se3/0
+Router(config-if)#ip add 190.168.0.2 255.255.0.0
+Router(config-if)#no sh
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial3/0, changed state to up
+
+Router(config-if)#ex
+Router(config)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial3/0, changed state to up
+
+Router(config)#int fa0/0
+Router(config-if)#ip add 10.0.0.1 255.0.0.0
+Router(config-if)#no sh
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#ex
+Router(config)#
+ 
+
+
+Router 0 to 1 and 2
+ 
+Router(config)#ip route 191.168.0.0 255.255.0.0 se2/0
+Router(config)#ip route 10.0.0.0 255.0.0.0 se2/0
+
+
+Router 1 to 0 and 2
+
+Router(config)#ip route 192.168.10.0 255.255.255.0 se2/0
+Router(config)#ip route 10.0.0.0 255.0.0.0 se3/0
+
+
+Router 2 to 1 and 2
+
+Router(config)#ip route 192.168.10.0 255.255.255.0 se3/0
+Router(config)#ip route 191.168.0.0 255.255.0.0 se3/0
+
+
+
+
+
+
+
+
+
+
+
+
+

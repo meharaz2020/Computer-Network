@@ -1,0 +1,10 @@
+en
+conf t
+int fa0/0
+ip add 192.168.10.1 255.255.255.0
+no sh
+ex
+ip dhcp pool meera
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+ex

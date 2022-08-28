@@ -1,0 +1,3 @@
+defferent device -> straight through cable
+same device-> cross over cable
+router to router -> serial DCE cable

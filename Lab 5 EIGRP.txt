@@ -1,0 +1,89 @@
+ROUTER 0
+
+en
+conf t
+int fa0/0
+ip add 192.168.10.1 255.255.255.0
+no sh
+ex
+int se2/0
+ip add 192.168.20.1 255.255.255.0
+clock rate 64000
+no sh
+ex
+
+
+ROUTER 1
+
+en
+conf t
+int se2/0
+ip add 192.168.20.2 255.255.255.0
+no sh
+ex
+int fa0/0
+ip add 191.168.0.1 255.255.0.0
+no sh
+ex
+int se3/0
+ip add 192.168.30.1 255.255.255.0
+clock rate 64000
+no sh
+ex
+
+
+
+
+ROUTER 2
+
+en
+conf t
+int se3/0
+ip add 192.168.30.2 255.255.255.0
+no sh
+ex
+int fa0/0
+ip add 10.0.0.1 255.0.0.0
+no sh
+ex
+
+
+EIGRP::
+ASN(Autonomous system number) from 1 to 65,535
+
+Available 1 to 64,511
+
+64,512 to 65,535 is for private use
+
+router eigrp ASN(1 to 64,511)
+
+192.168.2.0 255.255.255.0
+
+wildcard mask: max subnet mask - subnet mask
+               255.255.255.255 - 255.255.255.0               
+               0.0.0.255
+
+EIGRP command::
+ROUTER 0
+
+router eigrp 10
+network 192.168.10.0 0.0.0.255
+network 192.168.20.0 0.0.0.255
+ex
+
+ROUTER 1
+
+router eigrp 10
+network 191.168.0.0 0.0.255.255
+network 192.168.20.0 0.0.0.255
+network 192.168.30.0 0.0.0.255
+ex
+
+ROUTER 2
+
+router eigrp 10
+network 10.0.0.0 0.255.255.255 
+network 192.168.30.0 0.0.0.255
+ex
+
+
